@@ -1,0 +1,25 @@
+class Employee {
+    private int empId;
+    private String empName;
+
+    public void setEmpId(int id) {
+        empId = id;
+    }
+
+    public void setEmpName(String name) {
+        empName = name;
+    }
+
+    public void display() {
+        System.out.println(empId + " " + empName);
+    }
+}
+
+public class EncapsulationExample {
+    public static void main(String[] args) {
+        Employee e = new Employee();
+        e.setEmpId(201);
+        e.setEmpName("Anusha");
+        e.display();
+    }
+}
