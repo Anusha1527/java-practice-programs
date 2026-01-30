@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Employee {
+    int id;
+    String name;
+
+    Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+public class ComparatorExample {
+    public static void main(String[] args) {
+        ArrayList<Employee> list = new ArrayList<>();
+        list.add(new Employee(2, "Z"));
+        list.add(new Employee(1, "A"));
+
+        Collections.sort(list, (e1, e2) -> e1.name.compareTo(e2.name));
+
+        for (Employee e : list) {
+            System.out.println(e.id + " " + e.name);
+        }
+    }
+}
