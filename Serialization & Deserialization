@@ -1,0 +1,29 @@
+import java.io.*;
+
+class Person implements Serializable {
+    int id;
+    String name;
+
+    Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+public class SerializationExample {
+    public static void main(String[] args) throws Exception {
+        Person p = new Person(1, "Anusha");
+
+        ObjectOutputStream oos = new ObjectOutputStream(
+            new FileOutputStream("data.txt"));
+        oos.writeObject(p);
+        oos.close();
+
+        ObjectInputStream ois = new ObjectInputStream(
+            new FileInputStream("data.txt"));
+        Person obj = (Person) ois.readObject();
+
+        System.out.println(obj.id + " " + obj.name);
+        ois.close();
+    }
+}
