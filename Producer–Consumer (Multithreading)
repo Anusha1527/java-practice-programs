@@ -1,0 +1,23 @@
+class ProducerConsumer {
+    int item;
+    boolean available = false;
+
+    synchronized void produce(int value) {
+        if (available) return;
+        item = value;
+        available = true;
+        System.out.println("Produced: " + item);
+    }
+
+    synchronized void consume() {
+        if (!available) return;
+        System.out.println("Consumed: " + item);
+        available = false;
+    }
+
+    public static void main(String[] args) {
+        ProducerConsumer pc = new ProducerConsumer();
+        pc.produce(10);
+        pc.consume();
+    }
+}
